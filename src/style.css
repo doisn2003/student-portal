@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+div {
+  display: block;
+  unicode-bidi: isolate;
+}
+
+#navbar {
+  background-color: rgb(192, 33, 53);
+  color: white;
+}
+.box-logo {
+    display: grid;
+    column-gap: 1vw;
+    row-gap: 0.5vw;
+}
+#navbar-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5% 10%;
+}
+#title {
+    grid-column: 2;
+    white-space: nowrap;
+    font-size: 1.8vw;
+    align-self: end;
+    font-family: ava;
+    text-transform: uppercase;
+}
+#ces {
+    grid-row: 2;
+    grid-column: 2;
+    font-size: 1.2vw;
+    align-self: start;
+    font-family: lato;
+    font-weight: 400;
+}
+#ces-ctsv {
+    grid-row: 2;
+    grid-column: 0;
+    font-size: 1.2vw;
+    align-self: start;
+    font-family: lato;
+    font-weight: 400;
+}
+#logo {
+    grid-row: 1 / span 2;
+    grid-column: 1;
+    align-self: center;
+}
+#ctsv-logo {
+    align-self: center;
+    padding-left: 28px;
+}
+
+#logo img{
+    width: 100px;
+    height: auto;
+}
+
+#navbar .navbar-list {
+    padding: 0.5% 15% !important;
+}
+ul {
+    list-style-type: disc;
+}
+.navbar-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+#navbar .navbar-list ul li {
+    float: left;
+    border: 0 !important;
+    margin: 0 !important;
+    box-shadow: 0 !important;
+}
+li {
+    display: list-item;
+    unicode-bidi: isolate;
+}
+.navbar-list ul li a {
+    display: block;
+    text-align: center;
+    padding: 0.8vw 1.5vw;
+}
+
+a {
+    font-size: 20px;
+    color: inherit;
+    text-decoration: inherit;
+}
+a:hover {
+    background-color: rgb(161, 27, 42);
+    transition: 0.3s;
+    color: yellow;
+    font-size: 25px;
+}
+
+#navbar-current-page {
+    /* display: flex; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    color: rgb(192, 33, 53);
+    padding: 0.8% 10%;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.left-info-box {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 22%; /* Đặt chiều rộng cơ sở là 22% */
+    font-size: 18px;
+    line-height: 1.6;
+    position: relative;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px #ccc;
+    height: fit-content;
+}
+#avatar-box img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 4px #ccc;
+}
+
+/* === 2 thẻ div song song === */
+.web-body {
+    display: flex; /* Kích hoạt Flexbox */
+    flex-direction: row; /* Sắp xếp các con theo chiều ngang */
+    justify-content: center; /* Căn giữa toàn bộ bố cục */
+    padding: 2em 10%; /* Thêm khoảng đệm cho trang */
+    gap: 2%; /* Tạo khoảng cách 2% giữa hai box */
+    background-color: #f0f2f5; /* Thêm màu nền cho đẹp hơn */
+}
+
+.card {
+    flex-grow: 1; /* Cho phép .card lấp đầy không gian còn lại */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 4px #ccc;
+    height: fit-content; /* Chiều cao tự động */
+}
+
+.card .navbar-list ul {
+    background-color: rgb(231, 222, 222);
+    display: flex; 
+    flex-direction: row;
+    padding: 10px;
+    margin: 0;
+}
+.card .navbar-list ul li {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 0;
+    border-left: 1px solid black; /* đường viền nhạt */
+    margin-right: 0 !important; /* ghi đè margin không mong muốn */
+    box-sizing: border-box;
+    margin-right: 50px;
+    color: rgb(12, 1, 1);
+    font-weight: 350;
+}
+
+/* === CSS CHO BẢNG KẾT QUẢ HỌC TẬP === */
+#ketqua-hoctap {
+    padding: 20px;
+}
+
+.grade-table {
+    width: 100%;
+    border-collapse: collapse; /* Gộp đường viền */
+    margin-bottom: 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.grade-table th,
+.grade-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.grade-table th {
+    background-color: #f4f4f4; /* Màu nền tiêu đề */
+    font-weight: 600;
+}
+
+.grade-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Màu xen kẽ cho dễ đọc */
+}
+
+.grade-table tbody tr:hover {
+    background-color: #f1f1f1; /* Hover effect */
+}
+
+/* === CSS CHO CÁC NÚT ĐIỀU KHIỂN === */
+.controls-navbar {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút */
+    margin-bottom: 15px;
+}
+
+.controls-navbar button {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(192, 33, 53); /* Màu đỏ chủ đạo */
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.controls-navbar button:hover {
+    background-color: rgb(161, 27, 42); /* Màu đỏ đậm hơn */
+    transform: translateY(-2px); /* Hiệu ứng nhấc lên */
+}
+
+/* === CSS CHO KẾT QUẢ GPA === */
+#gpa-results {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* === CÁC LỚP HIGHLIGHT (CHO YÊU CẦU JS) === */
+
+/* Lớp tô màu xanh cho điểm A, A+ */
+.highlight-a {
+    background-color: #d4edda !important; /* Màu xanh lá nhạt */
+    color: #155724; /* Màu xanh lá đậm */
+    font-weight: 600;
+}
+
+/* Lớp tô màu đen (xám) cho điểm F */
+.highlight-f {
+    background-color: #f8d7da !important; /* Màu đỏ nhạt */
+    color: #721c24; /* Màu đỏ đậm */
+    font-weight: 600;
+}

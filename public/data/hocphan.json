@@ -1,0 +1,77 @@
+[
+  {
+    "cid": "IT3011",
+    "name": "Cấu trúc dữ liệu và thuật toán",
+    "credits": 2
+  },
+  {
+    "cid": "IT3040",
+    "name": "Kỹ thuật lập trình",
+    "credits": 2
+  },
+  {
+    "cid": "IT3150",
+    "name": "Project I",
+    "credits": 2
+  },
+  {
+    "cid": "IT3170",
+    "name": "Thuật toán ứng dụng",
+    "credits": 2
+  },
+  {
+    "cid": "IT3190",
+    "name": "Nhập môn Học máy và khai phá dữ liệu",
+    "credits": 3
+  },
+  {
+    "cid": "MI2020",
+    "name": "Xác suất thống kê",
+    "credits": 3
+  },
+  {
+    "cid": "ED3280",
+    "name": "Tâm lý học ứng dụng",
+    "credits": 2
+  },
+  {
+    "cid": "IT3120",
+    "name": "Phân tích và thiết kế hệ thống",
+    "credits": 2
+  },
+  {
+    "cid": "IT3180",
+    "name": "Nhập môn công nghệ phần mềm",
+    "credits": 3
+  },
+  {
+    "cid": "IT3930",
+    "name": "Project II",
+    "credits": 2
+  },
+  {
+    "cid": "IT4015",
+    "name": "Nhập môn an toàn thông tin",
+    "credits": 3
+  },
+  {
+    "cid": "IT4480",
+    "name": "Làm việc nhóm và kỹ năng giao tiếp",
+    "credits": 2
+  },
+  {
+    "cid": "PE2201",
+    "name": "Bóng đá 1",
+    "credits": 0
+  },
+  {
+    "cid": "PE2301",
+    "name": "Bóng rổ 1",
+    "credits": 0
+  },
+  {
+    "cid": "IT2030",
+    "name": "Technical Writing and Presentation",
+    "credits": 3
+  }
+]
