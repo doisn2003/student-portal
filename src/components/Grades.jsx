@@ -15,6 +15,43 @@ function checkGradeFilter(score, filter) {
   }
 };
 
+/**
+ * @param {string} cacheKey - Key để lưu trong localStorage
+ */
+async function fetchDataWithCache(cacheKey, filePath) {
+  console.log(`Bắt đầu truy vấn: ${cacheKey}`);
+  
+  // 1. Kiểm tra cache
+  const cachedData = localStorage.getItem(cacheKey);
+  if (cachedData) {
+      console.log(`Cache hit: Lấy ${cacheKey} từ localStorage`);
+      
+      await new Promise(resolve => setTimeout(resolve, 200)); 
+      return JSON.parse(cachedData);
+  }
+
+  // 2. Không có cache -> Dùng fetch()
+  console.log(`Cache miss: Fetching ${filePath}...`);
+  await new Promise(resolve => setTimeout(resolve, 5000)); // Chờ 1.5 giây
+  const response = await fetch(filePath);
+
+  if (!response.ok) {
+      throw new Error(`Không thể tải ${filePath}. Status: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  // 3. Lưu vào cache
+  try {
+      localStorage.setItem(cacheKey, JSON.stringify(data));
+      console.log(`Đã lưu ${cacheKey} vào cache.`);
+  } catch (e) {
+      console.warn("Không thể lưu cache (có thể do đầy bộ nhớ):", e);
+  }
+  
+  return data;
+}
+
 function Grades({ setStudentInfo }) {
     // state các ô input 
     const [sid, setSid] = useState('');
@@ -55,9 +92,9 @@ function Grades({ setStudentInfo }) {
         try {
             //Tải song song 3 file JSON
             const [students, courses, grades] = await Promise.all([
-                simpleFetch('/data/sinhvien.json'),
-                simpleFetch('/data/hocphan.json'),
-                simpleFetch('/data/ketqua.json')
+                fetchDataWithCache('sinhvien_data', '/data/sinhvien.json'),
+                fetchDataWithCache('hocphan_data', '/data/hocphan.json'),
+                fetchDataWithCache('ketqua_data', '/data/ketqua.json')
             ]);
 
             //Tìm sinh viên theo sid
@@ -95,7 +132,9 @@ function Grades({ setStudentInfo }) {
             if (filteredResults.length === 0) {
                 setStatus('Không tìm thấy kết quả phù hợp.');
             } else {
-                setStatus(`Tìm thấy ${filteredResults.length} kết quả.`);
+                const isCached = localStorage.getItem('sinhvien_data') !== null;
+                const source = isCached ? 'Cache' : 'Server (Fetch)';
+                setStatus(`Tìm thấy ${filteredResults.length} kết quả. (Nguồn: ${source})`);
             }
         } catch (err) {
             console.error("Lỗi khi tra cứu:", err);
@@ -108,12 +147,22 @@ function Grades({ setStudentInfo }) {
             setLoading(false);
         }
     };
-    // Hàm xử lý nhấn Enter
-    const handleKeyUp = (e) => {
-        if (e.key === 'Enter') {
-        handleSearch();
-        }
-    };
+  // Hàm xử lý nhấn Enter
+  const handleKeyUp = (e) => {
+      if (e.key === 'Enter') {
+      handleSearch();
+      }
+  };
+  // Hàm xóa cache (nếu cần)
+const handleClearCache = () => {
+  localStorage.removeItem('sinhvien_data');
+  localStorage.removeItem('hocphan_data');
+  localStorage.removeItem('ketqua_data');
+  console.log('Đã xóa cache.');
+  setStatus('Đã xóa cache. Thử tra cứu lại.');
+  setError(null);
+  setResults([]);
+};
 
     // Render JSX (Giao diện)
   return (
@@ -230,8 +279,14 @@ function Grades({ setStudentInfo }) {
           </tbody>
         </table>
       </div>
+      <button 
+        id="clearCacheButton" 
+        style={{ padding: '5px 10px', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer', margin: '0 0 20px 20px', fontSize: '12px' }}
+        onClick={handleClearCache}
+      >
+        Xóa Cache
+      </button>
       
-      {/* Nút Xóa Cache (tạm thời không cần vì chúng ta chưa cache) */}
     </>
   );
 }

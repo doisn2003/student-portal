@@ -1,16 +1,33 @@
-# React + Vite
+# Student Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Cấu trúc dự án
+- **public/**: Chứa các tệp JSON dữ liệu như `hocphan.json`, `ketqua.json`, `sinhvien.json`.
+- **src/**: Chứa mã nguồn chính của ứng dụng, bao gồm các tệp JavaScript/JSX và CSS.
+  - **components/**: Chứa các thành phần giao diện như `Grades.jsx`, `Navbar.jsx`, `Profile.jsx`, `StudentInfo.jsx`.
 
-Currently, two official plugins are available:
+## Các components
+- `Navbar.jsx`: Hiển thị thanh điều hướng.
+- `Profile.jsx`: Hiển thị thông tin cá nhân sinh viên.
+- `Grades.jsx`: Hiển thị bảng điểm.
+- `StudentInfo.jsx`: Thẻ avatar và thông tin sinh viên (bên trái).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Quản lý state
+- Component `App.jsx` quản lý state chính của ứng dụng
+# Bao gồm:
+- Quản lý student state để truyền cho StudentInfo. Giúp cập nhật thông tin sinh viên tương ứng
+Khi tra cứu mã số sinh viên khác, đồng bộ cả thông tin ở thẻ avatar bên trái nếu tìm thấy
+- Quản lý activeTab state để quyết định hiển thị <Profile /> (Bài tập tuần 05) hay <Grades /> (Bài tập tuần 6).
+- Truyền hàm setStudent xuống component <Grades /> để nó có thể cập nhật thông tin sinh viên ( aka. "lifting state up").
 
-## React Compiler
+## Mã hóa bất đồng bộ
+- Sử dụng `fetch` để giả lập lấy dữ liệu từ các tệp JSON trong thư mục `public/data`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Các hook được sử dụng
+- `useState`: Quản lý state cục bộ trong các component.
+- `useEffect`: Chưa được sử dụng trong dự án này
+# Lý do em không sử dụng `useEffect`
+- Logic của em là "Khi người dùng click nút Tra cứu, thì mới gọi API", do đó em code hàm handleSearch() để xử lý sự kiện onClick
+- useEffect là hook "tác dụng phụ" liên quan đến vòng đời components. Chẳng hạn: "khi được render lần đầu, hãy tự động tải dữ liệu".
+-> Trong logic của em, em chưa muốn tải dữ liệu khi components Grades được render, mà em muốn tải dữ liệu khi ấn nút "Tra cứu". Do đó useEffect chưa phù hợp với luồng logic này.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
