@@ -51,19 +51,19 @@ function App() {
             <ul>
               <li style={activeTab === 'profile' ? { backgroundColor: 'rgb(203, 163, 163)' } : {}}
                   onClick={(e) => handleTabClick('profile', e)}>
-                <a href="">Hồ sơ & Lý Lịch</a>
+                <a href="#">Hồ sơ & Lý Lịch</a>
               </li>
               <li style={activeTab === 'grades' ? { backgroundColor: 'rgb(203, 163, 163)' } : {}}
                   onClick={(e) => handleTabClick('grades', e)}>
-                <a href="">Kết quả học tập</a>
+                <a href="#">Kết quả học tập</a>
               </li>
               <li style={activeTab === 'activities' ? { backgroundColor: 'rgb(203, 163, 163)' } : {}}
                   onClick={(e) => handleTabClick('activities', e)}>
-                <a href="">Hoạt Động Ngoại khóa</a>
+                <a href="#">Hoạt Động Ngoại khóa</a>
               </li>
               <li style={activeTab === 'scholarships' ? { backgroundColor: 'rgb(203, 163, 163)' } : {}}
                   onClick={(e) => handleTabClick('scholarships', e)}>
-                <a href="">Học bổng & khen thưởng</a>
+                <a href="#">Học bổng & khen thưởng</a>
               </li>
             </ul>
           </div>

@@ -25,15 +25,15 @@ function Navbar() {
       {/* List of page */}
       <nav className="navbar-list">
         <ul>
-          <li><a href>Trang chủ</a></li>
-            <li><a href>Ngoại Khóa</a></li>
-            <li><a href>Hướng Nghiệp</a></li>
-            <li><a href>Học Bổng</a></li>
-            <li><a href>Chấm Điểm</a></li>
-            <li><a href>Hành Chính</a></li>
-            <li><a href>Q&A</a></li>
-            <li><a href>Hồ Sơ</a></li>
-            <li><a href>Nhập Học</a></li>
+          <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Ngoại Khóa</a></li>
+            <li><a href="#">Hướng Nghiệp</a></li>
+            <li><a href="#">Học Bổng</a></li>
+            <li><a href="#">Chấm Điểm</a></li>
+            <li><a href="#">Hành Chính</a></li>
+            <li><a href="#">Q&A</a></li>
+            <li><a href="#">Hồ Sơ</a></li>
+            <li><a href="#">Nhập Học</a></li>
         </ul>
       </nav>
       <div id="navbar-current-page">Kết Quả Học Tập</div>

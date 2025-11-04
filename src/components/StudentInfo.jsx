@@ -1,14 +1,14 @@
 import React from 'react';
 
-function StudentInfo() {
+function StudentInfo({ student }) {
 
     //generate email from student id
     const generateEmail = (name, sid) => {
         if(!name || !sid) return "";
         if(sid === '20215348') return 'Doi.sn215348@sis.hust.edu.vn';
 
-        const nomalizedName = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().split(" ");
-        const lastName = nomalizedName[nomalizedName.length - 1];
+        const normalizedName = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().split(" ");
+        const lastName = normalizedName[normalizedName.length - 1];
         const middleNameInitial = normalizedName.length > 1 ? normalizedName[0].charAt(0) : '';
         return `${lastName}.${middleNameInitial}${sid.slice(-6)}@sis.hust.edu.vn`;
     };

@@ -74,8 +74,8 @@ function Grades({ setStudentInfo }) {
 
             // Xử lý và lọc kết quả
             const courseMap = new Map(courses.map(c => [c.cid, { name: c.name, credits: c.credits }]));
-            
-            const fullResults = allResults
+
+            const fullResults = grades
                 .filter(res => res.sid === sid) // Lọc kết quả của sinh viên này
                 .map(res => {
                 const courseInfo = courseMap.get(res.cid) || { name: 'Không rõ', credits: '?' };
@@ -196,7 +196,7 @@ function Grades({ setStudentInfo }) {
           <thead>
             <tr style={{ backgroundColor: '#007bff', color: 'white' }}>
               <th style={{ padding: '12px', textAlign: 'left', borderBottom: '2px solid #0056b3' }}>Mã học phần</th>
-              <th styleV={{ padding: '12px', textAlign: 'left', borderBottom: '2px solid #0056b3' }}>Tên học phần</th>
+              <th style={{ padding: '12px', textAlign: 'left', borderBottom: '2px solid #0056b3' }}>Tên học phần</th>
               <th style={{ padding: '12px', textAlign: 'left', borderBottom: '2px solid #0056b3' }}>Số tín chỉ</th>
               <th style={{ padding: '12px', textAlign: 'left', borderBottom: '2px solid #0056b3' }}>Học kỳ</th>
               <th style={{ padding: '12px', textAlign: 'left', borderBottom: '2px solid #0056b3' }}>Điểm số</th>
